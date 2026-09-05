@@ -76,7 +76,7 @@ def get_gemini_model() -> str:
                 model = st.secrets["GEMINI_MODEL"]
         except Exception:
             pass
-    return model or "gemini-2.5-flash"
+    return model or "gemini-flash-lite-latest"
 
 
 def get_groq_model() -> str:
@@ -127,7 +127,7 @@ def generate_llm_response(messages: List[Dict[str, str]], temperature: float = 0
             full_prompt = f"System Instructions:\n{system_instructions}\n\n{full_prompt}"
             
         # Try generation with fallback models
-        models_to_try = [model_name, "gemini-2.5-flash", "gemini-1.5-flash", "gemini-1.5-pro"]
+        models_to_try = [model_name, "gemini-flash-lite-latest", "gemini-3.6-flash", "gemini-flash-latest"]
         seen = set()
         unique_models = [m for m in models_to_try if m and not (m in seen or seen.add(m))]
         
