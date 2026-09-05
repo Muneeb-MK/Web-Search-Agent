@@ -1,0 +1,15 @@
+# Database
+data/
+*.db
+
+# Environment variables & secrets
+.env
+.streamlit/secrets.toml
+
+# Python cache & virtual environment
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+env/
+venv/
